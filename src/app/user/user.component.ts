@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { _stagger as listStagger } from '../animations/list';
 import { DataService } from '../data.service';
 import { User } from '../typings';
 
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
-  styleUrls: ['./user.component.scss']
+  styleUrls: ['./user.component.scss'],
+  animations: [ listStagger ],
 })
 export class UserComponent implements OnInit {
 
