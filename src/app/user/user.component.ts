@@ -25,7 +25,7 @@ export class UserComponent implements OnInit {
 
   ngOnInit() {
     this.data.getUser(this.id).subscribe(user => {
-      this.user = (user as User);
+      this.user = user;
       this.showFields.push('username', 'email', 'phone');
     });
   }

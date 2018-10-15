@@ -16,7 +16,7 @@ export class PostsComponent implements OnInit {
   constructor(private data: DataService) { }
 
   ngOnInit() {
-    this.data.getPosts().subscribe(posts => this.posts = (posts as Post[]));
+    this.data.getPosts().subscribe(posts => this.posts = posts);
   }
 
 }
