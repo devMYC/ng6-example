@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { Post, User } from './typings';
 const API_HOST = 'https://jsonplaceholder.typicode.com';
 
@@ -8,6 +8,7 @@ const API_HOST = 'https://jsonplaceholder.typicode.com';
   providedIn: 'root'
 })
 export class DataService {
+  users: User[];
 
   constructor(private http: HttpClient) { }
 
@@ -16,7 +17,9 @@ export class DataService {
   }
 
   getUser(id: number): Observable<User> {
-    return this.http.get(`${API_HOST}/users/${id}`) as Observable<User>;
+    /* tslint:disable-next-line triple-equals */
+    const [ user ] = this.users && this.users.filter(u => u.id == id) || [ null ];
+    return user ? of(user) : this.http.get(`${API_HOST}/users/${id}`) as Observable<User>;
   }
 
   getUsers(): Observable<User[]> {
