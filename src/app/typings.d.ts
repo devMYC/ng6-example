@@ -1,11 +1,11 @@
-export type Post = {
+export interface Post {
   id: number;
   title: string;
   body: string;
   userId: number;
-};
+}
 
-export type User = {
+export interface User {
   id: number;
   name: string;
   username: string;
@@ -27,4 +27,4 @@ export type User = {
     catchPhrase: string;
     bs: string;
   };
-};
+}
