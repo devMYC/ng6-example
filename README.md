@@ -1,6 +1,6 @@
 # Run the app
 
-```bash
-> yarn
-> npx ng serve -o
+```
+$ yarn
+$ npx ng serve -o
 ```
